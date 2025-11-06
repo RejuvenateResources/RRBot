@@ -1,19 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>RR Bot</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RR Bot</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+  }
+
+  /* Use the image itself, not background */
+  .background img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Let the bot float */
+  df-messenger {
+    --df-messenger-bot-message: #ffffff;
+    --df-messenger-user-message: #5f46f8;
+    --df-messenger-font-color: #000000;
+    --df-messenger-user-font-color: #ffffff;
+    --df-messenger-button-titlebar-color: #5f46f8;
+    --df-messenger-chat-background-color: #ffffff;
+    --df-messenger-font: Arial, sans-serif;
+
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+  }
+
+  df-messenger::part(bot-icon) {
+    content: url("https://i.ibb.co/spw8mXJT/Rainbow-Logo.png");
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+
+  df-messenger::part(message-user) {
+    color: #ffffff !important;
+    background-color: #5f46f8 !important;
+    border-radius: 12px;
+    padding: 8px 12px;
+  }
+
+  df-messenger::part(message-bot) {
+    border-radius: 12px;
+    padding: 8px 12px;
+  }
+</style>
 </head>
 <body>
-  <h1>Welcome to RR Bot!</h1>
 
+  <!-- Real image as background -->
+  <div class="background">
+    <img src="https://i.ibb.co/fGtwDhRf/screencapture-rejuvenateresources-2025-11-05-12-28-17-min.png" alt="Background Image">
+  </div>
+
+  <!-- Dialogflow Messenger Bot -->
   <df-messenger
-    chat-icon="https://i.ibb.co/ymyHfxBz/Rainbow-Logo.png"
-    chat-title="RR"
+    chat-icon="https://i.ibb.co/spw8mXJT/Rainbow-Logo.png"
+    chat-title="RR Bot"
     agent-id="f7ee962b-9571-4224-ad3d-11b79df67a7b"
     language-code="en"
   ></df-messenger>
 
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
 </body>
 </html>
